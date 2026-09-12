@@ -3,12 +3,12 @@ package grupo1;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GereEventos {
+public class GereEvento{
     private List<Evento> eventos;
     private List<Participante> participantes;
     private List<Inscricao> inscricoes;
 
-    public GereEventos() {
+    public GereEvento() {
         this.eventos = new ArrayList<>();
         this.participantes = new ArrayList<>();
         this.inscricoes = new ArrayList<>();
@@ -29,7 +29,7 @@ public class GereEventos {
         for (Inscricao i : inscricoes) {
             if (i.getParticipante().getEmail().equals(p.getEmail()) &&
                 i.getEvento().getTitulo().equals(e.getTitulo()) &&
-                i.getEstado() != Inscricao.EstadoInscricao.CANCELADA) {
+                i.getEstado() != Inscricao.Estado.CANCELADA) {
                 System.out.println("Erro: O participante já está inscrito neste evento!");
                 return false;
             }
@@ -40,7 +40,7 @@ public class GereEventos {
         }
 
         Inscricao novaInscricao = new Inscricao(p, e);
-        novaInscricao.setEstado(Inscricao.EstadoInscricao.PENDENTE);
+        novaInscricao.setEstado(Inscricao.Estado.PENDENTE);
         inscricoes.add(novaInscricao);
         System.out.println("Inscrição efetuada com sucesso! Estado: PENDENTE.");
         return true;
@@ -50,8 +50,8 @@ public class GereEventos {
         for (Inscricao i : inscricoes) {
             if (i.getParticipante().getEmail().equalsIgnoreCase(p.getEmail()) &&
                 i.getEvento().getTitulo().equalsIgnoreCase(e.getTitulo()) &&
-                i.getEstado() != Inscricao.EstadoInscricao.CANCELADA) {
-                if (i.getEstado() == Inscricao.EstadoInscricao.CONFIRMADA) {
+                i.getEstado() != Inscricao.Estado.CANCELADA) {
+                if (i.getEstado() == Inscricao.Estado.CONFIRMADA) {
                     System.out.println("Esta inscrição já estava confirmada.");
                     return true;
                 }
@@ -59,7 +59,7 @@ public class GereEventos {
                     System.out.println("Erro: não há vagas disponíveis para confirmar esta inscrição!");
                     return false;
                 }
-                i.setEstado(Inscricao.EstadoInscricao.CONFIRMADA);
+                i.setEstado(Inscricao.Estado.CONFIRMADA);
                 System.out.println("Inscrição confirmada com sucesso!");
                 return true;
             }
@@ -72,9 +72,9 @@ public class GereEventos {
         for (Inscricao i : inscricoes) {
             if (i.getParticipante().getEmail().equalsIgnoreCase(p.getEmail()) &&
                 i.getEvento().getTitulo().equalsIgnoreCase(e.getTitulo()) &&
-                i.getEstado() != Inscricao.EstadoInscricao.CANCELADA) {
+                i.getEstado() != Inscricao.Estado.CANCELADA) {
 
-                i.setEstado(Inscricao.EstadoInscricao.CANCELADA);
+                i.setEstado(Inscricao.Estado.CANCELADA);
                 System.out.println("Inscrição cancelada com sucesso!");
                 return true;
             }
@@ -87,7 +87,7 @@ public class GereEventos {
         System.out.println("\n--- Participantes Confirmados no Evento: " + e.getTitulo() + " ---");
         boolean encontrou = false;
         for (Inscricao i : inscricoes) {
-            if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.EstadoInscricao.CONFIRMADA) {
+            if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.Estado.CONFIRMADA) {
                 System.out.println("- " + i.getParticipante().getNome() + " (" + i.getParticipante().getEmail() + ")");
                 encontrou = true;
             }
@@ -100,7 +100,7 @@ public class GereEventos {
     public int obterVagasDisponiveis(Evento e) {
         int confirmados = 0;
         for (Inscricao i : inscricoes) {
-            if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.EstadoInscricao.CONFIRMADA) {
+            if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.Estado.CONFIRMADA) {
                 confirmados++;
             }
         }
@@ -115,7 +115,7 @@ public class GereEventos {
         for (Evento e : eventos) {
             int count = 0;
             for (Inscricao i : inscricoes) {
-                if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.EstadoInscricao.CONFIRMADA) {
+                if (i.getEvento().getTitulo().equals(e.getTitulo()) && i.getEstado() == Inscricao.Estado.CONFIRMADA) {
                     count++;
                 }
             }
