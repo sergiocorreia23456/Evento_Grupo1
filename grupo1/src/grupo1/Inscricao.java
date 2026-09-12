@@ -13,7 +13,7 @@ public class Inscricao {
     public Inscricao(Participante participante, Evento evento) {
         this.participante = participante;
         this.evento = evento;
-        this.estado = Estado.PENDENTE; // toda a inscrição nasce PENDENTE
+        this.estado = Estado.PENDENTE;
     }
 
     public Participante getParticipante() {
