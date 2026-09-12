@@ -1,17 +1,17 @@
-Gestão de Eventos Universitários - Grupo 1
+# 🎓 Gestão de Eventos Universitários - Grupo 1
 
-Descrição
+## 📋 Descrição
 
 Aplicação em Java para gestão de eventos, participantes e inscrições.
 
-Elementos do Grupo e Distribuição de Tarefas
+## 👥 Elementos do Grupo e Distribuição de Tarefas
 
-Membro A (Filipe Tolentino): Classe Evento
+- **Filipe Tolentino**: Classe `Evento`
+- **Afonso Pinto**: Classe `Participante`
+- **Tiago Organista**: Classe `Inscrição`
+- **Sérgio Correia**: Classe `GereEventos`
+- **Rafael Viana**: Classe `Teste`
 
-Membro B (Afonso Pinto): Classe Participante
+## ▶️ Como Testar
 
-Membro C (Tiago Organista): Classe Inscrição
-
-Membro D (Sérgio Correia): Classe GereEventos
-
-Membro E (Rafael Viana): Classe Teste
+Importar o projeto no Eclipse e executar a classe `Teste.java`.
