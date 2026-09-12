@@ -1,10 +1,5 @@
 package grupo1;
 
-public class GereEvento {
-
-}
-package Gestao_de_eventos;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,4 +139,3 @@ public class GereEventos {
         return inscricoes;
     }
 }
-esta e com tudo certo
