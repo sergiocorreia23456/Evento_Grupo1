@@ -67,7 +67,6 @@ public class Teste {
                 	System.out.print("Título do Evento: ");
                 	String tituloInsc = scanner.nextLine();
 
-                	// Procura o participante com loop tradicional
                 	Participante pEncontrado = null;
                 	for (Participante p : gestor.getParticipantes()) {
                 	    if (p.getEmail().equalsIgnoreCase(emailInsc)) {
@@ -76,7 +75,6 @@ public class Teste {
                 	    }
                 	}
 
-                	// Procura o evento com loop tradicional
                 	Evento eEncontrado = null;
                 	for (Evento e : gestor.getEventos()) {
                 	    if (e.getTitulo().equalsIgnoreCase(tituloInsc)) {
@@ -85,7 +83,6 @@ public class Teste {
                 	    }
                 	}
 
-                	// Validação dos resultados
                 	if (pEncontrado == null) {
                 	    System.out.println("Erro: Participante não encontrado com esse email!");
                 	} else if (eEncontrado == null) {
